@@ -8,7 +8,9 @@ COPY ./ /usr/src/app/
 RUN apt-get update && apt-get install -y \
 	python-pip \
 	python-dev \
-	build-essential && rm -rf /var/lib/apt/lists/*
+	build-essential && \
+	rm -rf /var/lib/apt/lists/* && \
+	rm -rf /usr/src/app/db
 
 # Install python modules
 RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
@@ -17,6 +19,5 @@ RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 EXPOSE 5000 
 
 # Run the application
-
 CMD ["python", "/usr/src/app/run.py"]
 
