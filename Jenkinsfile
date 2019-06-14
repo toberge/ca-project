@@ -11,7 +11,7 @@ pipeline {
         stage ('Test') {
             steps {
                 echo "Performing tests in docker container..."
-                sh 'docker container exec img python /usr/src/app/tests.py'
+                sh 'docker container run --rm img python /usr/src/app/tests.py'
             }
         }
         stage ('Deploy') {
