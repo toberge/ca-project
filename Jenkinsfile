@@ -19,7 +19,7 @@ pipeline {
             steps {
                 // move tests somewhere
                 sh 'pwd'
-                sh "python tests.py"
+                sh "docker container exec -d img python tests.py"
             }
         }
 
