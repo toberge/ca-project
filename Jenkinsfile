@@ -3,7 +3,8 @@ node {
         echo "starting stuff... "
     }
     stage ('Build'){
-        echo "building... "
+        echo "running tests: "
+        sh "python tests.py"
     }
     stage ('Result'){
         echo "result: "
