@@ -6,3 +6,8 @@ __pycache__/
 # Ignore both app and test db
 app.db
 test.db
+
+# screw intellij
+.idea/*
+
+*.iml
