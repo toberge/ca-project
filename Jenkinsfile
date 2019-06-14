@@ -1,6 +1,6 @@
 node {
-    stage ('Preperation'){
-        echo "starting... "
+    stage ('Preperation here we go'){
+        echo "starting stuff... "
     }
     stage ('Build'){
         echo "building... "
