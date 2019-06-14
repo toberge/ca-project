@@ -19,7 +19,7 @@ pipeline {
                 echo "Stopping and removing all running containers"
                 sh 'docker container stop $(docker ps -aq)'
                 echo "Running ~~our~~ magnificent app"
-                sh 'docker container run --rm -d --name img -p 80:5000 -v /home/ubuntu/db:/usr/src/app/db img'
+                sh 'docker container run --rm -d --name img -p 80:5000 -v $(pwd)/db:/usr/src/app/db img'
             }
         }
 
