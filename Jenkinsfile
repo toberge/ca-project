@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage ('Build'){
             steps {
-                echo "Building docker image..."
+                echo "Removing previous and building new docker image..."
+                sh 'docker image prune'
                 sh 'docker image build -t img .'
             }
         }
@@ -17,7 +18,6 @@ pipeline {
             steps {
                 echo "Stopping & removing all running containers, removing all images"
                 sh 'docker container stop $(docker ps -aq)'
-                sh 'docker image prune'
                 echo "Running ~~our~~ magnificent app"
                 sh 'docker container run --rm -d --name img -p 80:5000 -v $(pwd)/db:/usr/src/app/db img'
             }
