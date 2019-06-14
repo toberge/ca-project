@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage ('Initiate'){
-            steps {
-                echo "result: "
-                sh 'docker container stop img'
-                sh 'docker container rm img'
-                sh 'docker image rm img'
-            }
-        }
         stage ('Build'){
             steps {
                 echo "starting stuff... "
@@ -18,6 +10,8 @@ pipeline {
         stage ('Run') {
             steps {
                 // check if something is running
+                sh 'docker container stop $(docker ps -aq)'
+                sh 'docker container prune'
                 sh 'docker container run --rm -d --name img -p 80:5000 img'
             }
         }
