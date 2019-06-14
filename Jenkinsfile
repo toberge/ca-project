@@ -18,7 +18,7 @@ pipeline {
                 // check if something is running
                 sh 'docker container stop $(docker ps -aq)'
                 // sh 'docker container prune'
-                sh 'docker container run --rm -d --name img -p 80:5000 img'
+                sh 'docker container run --rm -d --name img -p 80:5000 -v $(pwd)/db:/usr/src/app/db img'
             }
         }
 
