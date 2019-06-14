@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y \
 	python-pip \
 	python-dev \
 	build-essential && \
-	rm -rf /var/lib/apt/lists/* && \
-	rm -rf /usr/src/app/db
+	rm -rf /var/lib/apt/lists/*
 
 # Install python modules
 RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
