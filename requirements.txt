@@ -1,6 +1,6 @@
 Flask
 Flask-sqlalchemy
 migrate
-
+ 
 requests
 flask_wtf
