@@ -4,7 +4,7 @@ pipeline {
         stage ('Build'){
             steps {
                 echo "starting stuff... "
-                sh 'docker image build --name img .'
+                sh 'docker image build -t img .'
             }
         }
         stage ('Run') {
