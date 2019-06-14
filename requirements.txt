@@ -1,2 +1,7 @@
 Flask
 Flask-sqlalchemy
+os
+migrate
+imp
+json
+requests
