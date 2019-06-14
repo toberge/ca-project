@@ -17,7 +17,9 @@ RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 COPY run.py /usr/src/app
 
 # Declare the port number the conainer should expose
-EXPOSE 5000
+EXPOSE 5000 
 
 # Run the application
+
 CMD ["python", "/usr/src/app/run.py"]
+
