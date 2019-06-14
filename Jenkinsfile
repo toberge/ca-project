@@ -15,9 +15,9 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                echo "Stopping all running containers"
+                echo "Stopping & removing all running containers, removing all images"
                 sh 'docker container stop $(docker ps -aq)'
-                // Pretty sure we do not need this: sh 'docker container prune'
+                sh 'docker image prune'
                 echo "Running ~~our~~ magnificent app"
                 sh 'docker container run --rm -d --name img -p 80:5000 -v $(pwd)/db:/usr/src/app/db img'
             }
