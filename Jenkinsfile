@@ -9,8 +9,8 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                sh 'ls -l'
-                sh "docker container exec --rm img python tests.py"
+                sh 'docker container exec img ls -l'
+                sh "docker container exec img python tests.py"
             }
         }
         stage ('Deploy') {
